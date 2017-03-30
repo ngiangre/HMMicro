@@ -19,6 +19,7 @@ We will provide a HMM that will predict binding and non-binding states, trained 
 
 ### HMM evaluation
 
-## Data
+**************************************************
+## Data and Scripts
 
 *intersected_regions.bed* contains the genomic windows considered. They are the rows in the *final_matrix.txt*. The columns in *final_matrix.txt* are the epigenetic marks in HEK293 cells from ENCODE. Both files were generated the the *DeepBlueR.R* script. *dimReduce.ipynb* reduces the matrix in *final_matrix.txt* to it's principal components, outputting a square matrix into *matrix_reduce.txt* and, along with our training dataset, will be used for training a HMM. 
