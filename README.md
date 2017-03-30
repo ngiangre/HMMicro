@@ -9,6 +9,7 @@ Here, we have experimentally validated miRNA binding sites (list reference) and 
 
 We will provide a HMM that will predict binding and non-binding states, trained on different epigenomic data types from HEK293 cells assayed by ENCODE. 
 
+**************************************************
 ### HEK293 ENCODE data downloading and processing of epigenetic matrix
 
 ### Dimesion reduction of epigenetic matrix
@@ -18,7 +19,6 @@ We will provide a HMM that will predict binding and non-binding states, trained 
 ### HMM testing
 
 ### HMM evaluation
-
 **************************************************
 ## Data and Scripts
 
