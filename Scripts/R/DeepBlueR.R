@@ -28,6 +28,8 @@ library(matrixStats)
 library(stringr)
 #####Making and outputting signal matrix:-run interactively#####
 ####
+setwd("~/GitHub/HMMicro/")
+####
 #list experiments via DeepBlueR server
 #projects<-deepblue_list_projects()[["name"]]
 experiments = deepblue_list_experiments(type="signal", genome = "hg19",
@@ -92,7 +94,7 @@ sub_df_score_matrix<-lapply(sub_score_matrix,as.data.frame)
 #output beds to directory
 for(i in 1:length(sub_df_score_matrix)){
   write.table(sub_df_score_matrix[[i]],
-              paste0("~/GitHub/HMMicro/data/bed/",
+              paste0("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/bed/",
                      colnames(sub_df_score_matrix[[i]])[4],".bed"),
               quote=F,col.names=F,row.names=F,sep="\t")
 }
@@ -101,12 +103,12 @@ for(i in 1:length(sub_df_score_matrix)){
 #intersect with bedops-use in terminal
 #download bedops from https://github.com/bedops/bedops
 #paths conformed for use on local
-#bedops --intersect ~/GitHub/HMMicro/data/bed/* > ~/GitHub/HMMicro/data/intersected_regions.bed
+#bedops --intersect ~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/bed/* > ~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/intersected_regions.bed
 
 ####
 #upload from bedops and store as GRanges
 #paths conformed to use on local
-intersected_regions<-read.table("~/GitHub/HMMicro/data/intersected_regions.bed",header=F,sep="\t")
+intersected_regions<-read.table("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/intersected_regions.bed",header=F,sep="\t")
 colnames(intersected_regions)<-c("chrom","start","end")
 GRanges_intersected_regions<-makeGRangesFromDataFrame(intersected_regions)
 
