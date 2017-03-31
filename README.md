@@ -34,4 +34,4 @@ See *dimReduce.ipynb* script for detailed procedure.
 
 ## References
 
-* Elbrecht et al. (2017). DeepBlueR: large-scale epigenomic analysis in R. *Bioinformatics* 1-2. 
+1. Elbrecht et al. (2017). DeepBlueR: large-scale epigenomic analysis in R. *Bioinformatics* 1-2. 
