@@ -142,3 +142,7 @@ encode<-c("Kap1","Pol2ra","TCFL2","Control.1","Control.2","ZNF263",
 ####
 #output final matrix
 write.table(mat,file="~/GitHub/HMMicro/data/final_matrix.txt",sep="\t",row.names=F,col.names=T)
+
+####
+#saving environment
+save.image("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/DeepBlueR.RDa")
