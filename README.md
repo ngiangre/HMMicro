@@ -22,7 +22,7 @@ The dimensions of the epigenetic mark signatures in HEK293 cells were reduced to
 
 See *dimReduce.ipynb* script for detailed procedure.
 
-### HMM training
+### Evaluation data
 
 Training data was taken from (Hafner, et al.)[http://dx.doi.org/10.1016/j.cell.2010.03.009]. Specifically, these are crosslink-centered regions (CCRs) from AGO-PAR-CLIP sequencing libraries, i.e. purportedly miRNA sites, from HEK293 cells. The files are located at *CLIP_data/HEK293*. Steps/files are as follows:
 
@@ -46,14 +46,16 @@ Training data was taken from (Hafner, et al.)[http://dx.doi.org/10.1016/j.cell.2
     -   Merge the lifted-over beds into a single bed file
     -   Outputs:
         Hafner.combined_AGO.proc.hg19.bed
+### HMM training
 
 ### HMM testing
 
 ### HMM evaluation
+
 **************************************************
 ## Data and Scripts
 
-*intersected_regions.bed* contains the genomic windows considered. They are the rows in the *final_matrix.txt*. The columns in *final_matrix.txt* are the epigenetic marks (signal from BigWig files) in HEK293 cells from ENCODE. These are Kap1 ChIP-Seq, Pol2ra ChIPSeq, TCFL2 ChIP-Seq, Control rep 1 ChIP-Seq, Control rep 2 ChIP-Seq, ZNF263 ChIP-Seq, H3K4me3 rep 1 ChIP-Seq, H3K4me3 rep 2 ChIP-Seq, Control rep 3 ChIP-Seq, CTCF rep 1 ChIP-Seq, ELK4 ChIP-Seq, CTCF rep 2 ChIP-Seq, and Control rep 4 ChIP-Seq. The procedure for generating both files can be found in the *DeepBlueR.R* script. *dimReduce.ipynb* reduces the matrix in *final_matrix.txt* to it's principal components, outputting a square matrix into *matrix_reduce.txt*. Each row is a coefficient in the linear combination for a given principal component, and each column is a principal component, where n in the n x n matrix corresponds to the number of epigenetic mark signatures. Along with our training dataset, will be used for training a HMM. 
+*intersected_regions.bed* contains the genomic windows considered. They are the rows in the *final_matrix.txt*. The columns in *final_matrix.txt* are the epigenetic marks (signal from BigWig files) in HEK293 cells from ENCODE. These are Kap1 ChIP-Seq, Pol2ra ChIPSeq, TCFL2 ChIP-Seq, ZNF263 ChIP-Seq, ELK4 ChIP-Seq, CTCF ChIP-Seq and H3K4me3 ChIP-Seq. The procedure for generating both files can be found in the *DeepBlueR.R* script. *dimReduce.ipynb* reduces the matrix in *final_matrix.txt* to its principal components, outputting a square matrix into *matrix_reduce.txt*. Each row is a coefficient in the linear combination for a given principal component, and each column is a epigenetic mark's (named in order above) principal component, where n in the n x n matrix corresponds to the number of epigenetic mark signatures. Along with our training dataset, the components will be used for training a HMM. 
 
 ## References
 
