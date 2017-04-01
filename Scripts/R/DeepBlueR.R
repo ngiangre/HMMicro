@@ -139,9 +139,20 @@ colnames(mat)
 encode<-c("Kap1","Pol2ra","TCFL2","Control.1","Control.2","ZNF263",
           "H3K4me3.1","H3K4me3.2","Control.3","CTCF.1","ELK4","CTCF.2",
           "Control.4")
+
+####
+#changing column names, 
+#merging replicates and removing controls
+newmat<-mat
+colnames(newmat)<-encode
+newmat<-newmat[,-c(4,5,9,13)]
+H3K4me3<-apply(newmat[,c(5,6)],1,mean)
+CTCF<-apply(newmat[,c(7,9)],1,mean)
+newmat<-cbind(newmat[,c(1:4,8)],CTCF,H3K4me3)
+
 ####
 #output final matrix
-write.table(mat,file="~/GitHub/HMMicro/data/final_matrix.txt",sep="\t",row.names=F,col.names=T)
+write.table(newmat,file="~/GitHub/HMMicro/data/final_matrix.txt",sep="\t",row.names=F,col.names=T)
 
 ####
 #saving environment
