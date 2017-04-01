@@ -24,6 +24,29 @@ See *dimReduce.ipynb* script for detailed procedure.
 
 ### HMM training
 
+Training data was taken from (Hafner, et al.)[http://dx.doi.org/10.1016/j.cell.2010.03.009]. Specifically, these are crosslink-centered regions (CCRs) from AGO-PAR-CLIP sequencing libraries, i.e. purportedly miRNA sites, from HEK293 cells. The files are located at *CLIP_data/HEK293*. Steps/files are as follows:
+
+1.  Hafner.combined_AGO.raw.txt, Hafner.combined_TNRC6.raw.txt
+    -   Table S4 from the Hafner paper. Fasta-list of the CCRs from the combined AGO-PAR-CLIP libraries and the combined TNRC6-PAR-CLIP libraries used for the analysis
+2.  process.raw.py
+    -   Python script for converting raw fasta-list of CCRs to a more readable tsv format with header
+    -   Outputs:
+        *   Hafner.combined_AGO.proc.tsv
+3.  create_beds.sh
+    -   Create bed files to be lifted over from hg18 to hg19
+    -   Outputs:
+        *   Hafner.combined_AGO.proc.bed
+        *   Hafner.combined_AGO.proc.start.end.bed
+        *   Hafner.combined_AGO.proc.start.t2c_pos.bed
+4.  Liftover was performed using the UCSC Genome Browser Utilities (liftOver tool)[https://genome.ucsc.edu/cgi-bin/hgLiftOver].
+    -   Outputs:
+        *   Hafner.combined_AGO.proc.start.end.hg19.bed
+        *   Hafner.combined_AGO.proc.start.t2c_pos.hg19.bed
+5.  merge_hg19_beds.sh
+    -   Merge the lifted-over beds into a single bed file
+    -   Outputs:
+        Hafner.combined_AGO.proc.hg19.bed
+
 ### HMM testing
 
 ### HMM evaluation
