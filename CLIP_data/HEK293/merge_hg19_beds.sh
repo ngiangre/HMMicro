@@ -1,10 +1,10 @@
 #!/bin/bash
 
-work_dir="/Users/Felix/Google_Drive/HMM_Project/CLIP_data/HEK293"
+work_dir="/Users/Felix/GitHub/HMMicro/CLIP_data/HEK293"
 
 bed_all="${work_dir}/Hafner.combined_AGO.proc.bed"
-bed_end="${work_dir}/Hafner.combined_AGO.proc.start.end.bed"
-bed_t2c="${work_dir}/Hafner.combined_AGO.proc.start.t2c_pos.bed"
+bed_end="${work_dir}/Hafner.combined_AGO.proc.start.end.hg19.bed"
+bed_t2c="${work_dir}/Hafner.combined_AGO.proc.start.t2c_pos.hg19.bed"
 
 out_fn="${bed_all%.*}.hg19.bed"
 
