@@ -1,3 +1,0 @@
-# required db variable
-db rn6
-liftUp /hive/data/genomes/rn6/jkStuff/ensToUcsc.lift

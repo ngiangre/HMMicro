@@ -1,3 +1,0 @@
-This directory contains programs that are run one time to fix or upgrade database.
-They are not built as part of the general build, and not maintained.  It is good
-that they be code reviewed though at least briefly.

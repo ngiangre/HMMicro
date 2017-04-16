@@ -1,6 +1,0 @@
-#Genes and Gene predictions
-
-track genscan override
-visibility pack
-priority 1
-
