@@ -204,46 +204,49 @@ for(i in 1:length(request_id)){
 sub_score_matrix_chr22<-NULL
 for(i in 1:length(score_matrix_chr22)){
   sm<-score_matrix_chr22[[i]]
-  valinds<-which(!is.na(sm[,4]))
-  sub_score_matrix_chr22[[i]]<-sm[valinds,]
+  sub_score_matrix_chr22[[i]]<-sm
+  nonvalinds<-which(is.na(sm[,4]))
+  sub_score_matrix_chr22[[i]][nonvalinds,]<-0
+  #valinds<-which(!is.na(sm[,4]))
+  #sub_score_matrix_chr22[[i]]<-sm[valinds,]
 }
 
 ####
 #converting data table to data frame class
 sub_df_score_matrix_chr22<-lapply(sub_score_matrix_chr22,as.data.frame)
 
-####
-#output beds to directory
-for(i in 1:length(sub_df_score_matrix_chr22)){
-  write.table(sub_df_score_matrix_chr22[[i]],
-              paste0("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/bed_chr22/",
-                     colnames(sub_df_score_matrix_chr22[[i]])[4],".bed"),
-              quote=F,col.names=F,row.names=F,sep="\t")
-}
-
-####
-#intersect with bedops-use in terminal
-#download bedops from https://github.com/bedops/bedops
-#paths conformed for use on local
-#bedops --intersect ~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/bed_chr22/* > ~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/intersected_regions_chr22.bed
-
-####
-#upload from bedops and store as GRanges
-#paths conformed to use on local
-intersected_regions_chr22<-read.table("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/intersected_regions_chr22.bed",header=F,sep="\t")
-colnames(intersected_regions_chr22)<-c("chrom","start","end")
-GRanges_intersected_regions_chr22<-makeGRangesFromDataFrame(intersected_regions_chr22)
-#reading in bed files if needed
-dir="~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/bed_chr22"
-files<-list.files(path = dir,pattern=".bed$")
-sub_df_score_matrix_chr22<-NULL
-for(i in 1:length(files)){
-  f<-paste0(dir,"/",files[i])
-  sub_df_score_matrix_chr22[[i]]<-read.table(f,header=F)
-}
-for(i in 1:length(sub_df_score_matrix_chr22)){
-  colnames(sub_df_score_matrix_chr22[[i]])<-c("chr","start","end","signal")
-}
+# ####
+# #output beds to directory
+# for(i in 1:length(sub_df_score_matrix_chr22)){
+#   write.table(sub_df_score_matrix_chr22[[i]],
+#               paste0("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/bed_chr22/",
+#                      colnames(sub_df_score_matrix_chr22[[i]])[4],".bed"),
+#               quote=F,col.names=F,row.names=F,sep="\t")
+# }
+# 
+# ####
+# #intersect with bedops-use in terminal
+# #download bedops from https://github.com/bedops/bedops
+# #paths conformed for use on local
+# #bedops --intersect ~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/bed_chr22/* > ~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/intersected_regions_chr22.bed
+# 
+# ####
+# #upload from bedops and store as GRanges
+# #paths conformed to use on local
+# intersected_regions_chr22<-read.table("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/intersected_regions_chr22.bed",header=F,sep="\t")
+# colnames(intersected_regions_chr22)<-c("chrom","start","end")
+# GRanges_intersected_regions_chr22<-makeGRangesFromDataFrame(intersected_regions_chr22)
+# #reading in bed files if needed
+# dir="~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/bed_chr22"
+# files<-list.files(path = dir,pattern=".bed$")
+# sub_df_score_matrix_chr22<-NULL
+# for(i in 1:length(files)){
+#   f<-paste0(dir,"/",files[i])
+#   sub_df_score_matrix_chr22[[i]]<-read.table(f,header=F)
+# }
+# for(i in 1:length(sub_df_score_matrix_chr22)){
+#   colnames(sub_df_score_matrix_chr22[[i]])<-c("chr","start","end","signal")
+# }
 
 ####
 #make original dfs into GRanges List
