@@ -1,3 +1,0 @@
-#!/bin/tcsh -efx
-hacTreeTest out.fromItems -hacTree=fromItems
-hacTreeTest out.multiThreads -hacTree=multiThreads

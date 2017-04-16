@@ -1,6 +1,0 @@
-# required db variable
-db eriEur1
-# do we need to translate geneScaffold coordinates
-geneScaffolds yes
-# change Ensembl MT name to chrM
-nameTranslation "s/^MT/chrM/;"
