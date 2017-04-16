@@ -1,0 +1,73 @@
+#	"$Id: trackDb.ra,v 1.11 2010/03/02 21:23:47 kuhn Exp $";
+
+include trackDb.chainNet.ra
+
+# Local declaration so that local gold.html is picked up.
+track gold override
+visibility hide
+
+track multiz5way
+shortLabel Conservation
+longLabel 5 Species Multiz Alignment & Conservation 
+group compGeno
+priority 104.2
+visibility pack
+color 0, 10, 100
+altColor 0,90,10
+type wigMaf 0.0 1.0
+maxHeightPixels 100:40:11
+wiggle phastCons5
+spanList 1
+pairwiseHeight 12
+yLineOnOff Off
+frames multiz5wayFrames
+irows on
+autoScale Off
+windowingFunction mean
+summary multiz5waySummary
+speciesCodonDefault fr2
+speciesGroups vertebrate
+sGroup_vertebrate tetNig1 oryLat1 gasAcu1 danRer4 
+treeImage phylo/fr2_5way.gif
+
+track phastConsElements5way
+shortLabel Most Conserved
+longLabel PhastCons Conserved Elements
+group compGeno
+priority 105
+visibility hide
+exonArrows off
+showTopScorers 200
+type bed 5 .
+
+searchTable ensGene
+searchType genePred
+shortCircuit 1
+termRegex ENSTRUT0000[0-9]+(\.[0-9]+)?
+searchPriority 50
+
+searchName ensDotPrefix
+searchTable ensGene
+query select chrom,txStart,txEnd,name from %s where name like '%s.%%'
+shortCircuit 1
+termRegex ENSTRUT0000[0-9]+(\.[0-9]+)?
+searchPriority 50
+
+searchName ensGeneGtpGene
+searchTable ensGene
+searchType genePred
+searchMethod prefix
+shortCircuit 1
+xrefTable ensGtp
+xrefQuery select transcript,gene from %s where gene like '%s%%'
+termRegex ENSTRUG0000[0-9]+(\.[0-9]+)?
+searchPriority 50
+
+searchName ensGeneGtpProtein
+searchTable ensGene
+searchType genePred
+searchMethod prefix
+shortCircuit 1
+xrefTable ensGtp
+xrefQuery select transcript,protein from %s where protein like '%s%%'
+termRegex ENSTRUP0000[0-9]+(\.[0-9]+)?
