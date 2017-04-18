@@ -192,7 +192,7 @@ deepblue_info(request_id_chr22[[9]])$state
 #dowmloading score matrix once jobs are done
 #as indicated above
 score_matrix_chr22<-NULL
-for(i in 1:length(request_id)){
+for(i in 1:length(request_id_chr22)){
   if(deepblue_info(request_id_chr22[[i]])$state=="done"){
     #downloading matrix 
     score_matrix_chr22[[i]] <- deepblue_download_request_data(request_id = request_id_chr22[[i]])
@@ -206,7 +206,7 @@ for(i in 1:length(score_matrix_chr22)){
   sm<-score_matrix_chr22[[i]]
   sub_score_matrix_chr22[[i]]<-sm
   nonvalinds<-which(is.na(sm[,4]))
-  sub_score_matrix_chr22[[i]][nonvalinds,]<-0
+  sub_score_matrix_chr22[[i]][nonvalinds,4]<-0
   #valinds<-which(!is.na(sm[,4]))
   #sub_score_matrix_chr22[[i]]<-sm[valinds,]
 }
@@ -406,4 +406,4 @@ write.table(newmat,file="~/GitHub/HMMicro/data/final_matrix.txt",sep="\t",row.na
 save.image("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/DeepBlueR.RDa")
 
 #####saving requests env#####
-save.image("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/DeepBlueR_requests.RDa")
+save.image("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/DeepBlueR_chr22_score_matrix.RDa")
