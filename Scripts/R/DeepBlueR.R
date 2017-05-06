@@ -77,4 +77,5 @@ for(i in 1:length(request_id_chr22)){
 }
 
 #####saving requests env#####
+#outputted to a tmp location and kept there because too big for github repo
 save.image("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/DeepBlueR_chr22_score_matrix.RDa")
