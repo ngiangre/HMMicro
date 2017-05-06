@@ -8,6 +8,8 @@ We developed a Hidden Markov Model (HMM) for predicting miRNA binding sites. Und
 Here, we have experimentally validated miRNA binding sites [1] and we hypothesize that the signature of epigenetic marks, provided from ENCODE HEK293 cells [2], along the genome contain a hidden 'regulatory logic' that is present in guiding miRNA binding along the transcriptome. 
 
 We provide an HMM that predicts binding and non-binding states, trained on the different epigenomic data types from HEK293 cells assayed by ENCODE. 
+
+For reproducing without consulting the explanations given below, pretty much follow the ordering of script execution: *DeepBlueR.R* --> *Rjob_chr22.R* --> *dimReduce.ipynb*
 **************************************************
 ### HEK293 ENCODE data downloading and processing of epigenetic matrix
 
@@ -62,7 +64,7 @@ The *DeepBlueR.R* and *Rjob_chr22.R* scripts detail the procedure for downloadin
 
 *dimReduce.ipynb* reduces the matrix in *final_matrix.txt* to its principal components, outputting a square matrix into *matrix_reduce.txt*. Each row is a coefficient in the linear combination for a given principal component, and each column is a principal component from *final_matrix.txt*, where n in the n x n matrix corresponds to the number of epigenetic mark signatures, herein seven. 
 
-*findingStatesDistribution.ipynb* details the procedure for finding an approximate distribution of the evaluation dataset's miRNA start sites along chromosome 22.
+*findingStatesDistribution.ipynb* details the procedure for finding an approximate distribution of the evaluation dataset's miRNA start sites along chromosome 22. Unfortunately, we didn't have time to strategize how to implement this knowledge. This would be a future direction. 
 
 *train_hmm.ipynb* details the procedure for developing and training an HMM using the *Pomegranate* Python package [4]. The principal components in *reduced_matrix.txt*  are used as the prior emission matrix. Uniformly disyributed random numbers populated a prior transition matrix to model probably transitions between binding and non-binding states. These prior emissions and transmissions probabilities were used for hard coding and then training the HMM. 
 **************************************************
