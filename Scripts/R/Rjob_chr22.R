@@ -10,6 +10,9 @@
 #
 #ran on c2b2 because it requires lots of memory...
 #
+#outputted matrix to a temporary place because I then
+#transferred it to the github repo to be processed by
+#code in the dimReduce.ipynb
 ####################
 setwd("/ifs/scratch/c2b2/ac_lab/npg2108/HMMicro/")
 
