@@ -1,6 +1,6 @@
 # HMMicro
 Spring 2017 Computational Genomics course project
-
+**************************************************
 ## Overview
 
 We developed a Hidden Markov Model (HMM) for predicting miRNA binding sites. Underlying the HMM is the hypothess that the arrangement of different epigenetic sequencing data types gives (redundant) regulatory information in a given cell type, suitable for predicting other epigenetic patterns such as miRNA binding.
@@ -8,7 +8,6 @@ We developed a Hidden Markov Model (HMM) for predicting miRNA binding sites. Und
 Here, we have experimentally validated miRNA binding sites [1] and we hypothesize that the signature of epigenetic marks, provided from ENCODE HEK293 cells [2], along the genome contain a hidden 'regulatory logic' that is present in guiding miRNA binding along the transcriptome. 
 
 We provide an HMM that predicts binding and non-binding states, trained on the different epigenomic data types from HEK293 cells assayed by ENCODE. 
-
 **************************************************
 ### HEK293 ENCODE data downloading and processing of epigenetic matrix
 
@@ -66,7 +65,15 @@ The *DeepBlueR.R* and *Rjob_chr22.R* scripts detail the procedure for downloadin
 *findingStatesDistribution.ipynb* details the procedure for finding an approximate distribution of the evaluation dataset's miRNA start sites along chromosome 22.
 
 *train_hmm.ipynb* details the procedure for developing and training an HMM using the *Pomegranate* Python package [4]. The principal components in *reduced_matrix.txt*  are used as the prior emission matrix. Uniformly disyributed random numbers populated a prior transition matrix to model probably transitions between binding and non-binding states. These prior emissions and transmissions probabilities were used for hard coding and then training the HMM. 
+**************************************************
+## System Requirements
 
+**R: version 3.3.1; *DeepBlueR* package.**
+
+**Python: 2.7+; *sklearn*, *pandas*, *numpy* and *pomegranate* packages**
+
+**HPC/Laptop requirements: system that can handle >50GB of memory and processing-for processing of epigenetic data detailed in *Rjob_chr22.R* script. Local laptop with 8GB of RAM and >20GB of memory on hard disk will suffice for submitting and downloading from DeepBlue server, though one generally can't do anything else...so run overnight with laptop never sleeping.**
+**************************************************
 ## References
 
 1. Lipchina, I. et al. (2011). Genome-wide identification of microRNA targets in human ES cells reveals a role for miR-302 in modulating BMP response. *Genes and Development.* 25: 2173–2186. 
