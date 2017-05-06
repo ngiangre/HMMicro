@@ -7,12 +7,15 @@
 #
 #https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkw211
 #
-#Getting HEK293 epigenetic signals in
-#genomic intervals across the whole genome
+#submitting job requests for 
+#epigenetic signal at nucleotide 
+#resolution along chr22 in HEK293
+#cells in ENCODE
 #
-#Output is a matrix with rows as 1 bp with
-#signal for every epigenetic mark in HEK293 cells and
-#columns for each epigenetic mark assayed in HEK293 cells
+#also downloading jobs from DeepBlueServer
+#takes a while and chews up memory/cpu...
+#
+#run interactively e.g. RStudio
 #
 #used local for downloading (this script) and c2b2 
 #(.../HMMicro/Scripts/R/Rjob_chr22.R) for processing
@@ -42,7 +45,7 @@ for(i in 1:nrow(experiments)){
 names(exp_columns) <- deepblue_extract_names(experiments)
 #filter for repeat file names
 exp_columns <- deepblue_select_column(experiments, "VALUE")
-#####chr22#####
+
 ####
 #making genomic windows
 tiling_regions_chr22 = deepblue_tiling_regions(size=1, genome="hg19",chromosome="chr22")
@@ -72,5 +75,6 @@ for(i in 1:length(request_id_chr22)){
     score_matrix_chr22[[i]] <- deepblue_download_request_data(request_id = request_id_chr22[[i]])
   }
 }
+
 #####saving requests env#####
 save.image("~/Documents/Columbia/Courses/COMPUTATIONAL_GENOMICS/HMMicro_notgit/data/DeepBlueR_chr22_score_matrix.RDa")

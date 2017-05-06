@@ -1,3 +1,16 @@
+####################
+#Processing HEK293 epigenomic data from
+#ENCODE via the DeepBlueR R package.
+#
+#first run (interactively) .../HMMicro/Scripts/R/DeepBlueR.R
+#
+#Final output is the matrix with
+#columns as epigenetic expertiments and rows
+#as nucleotides along chr22
+#
+#ran on c2b2 because it requires lots of memory...
+#
+####################
 setwd("/ifs/scratch/c2b2/ac_lab/npg2108/HMMicro/")
 
 library(DeepBlueR)
@@ -40,7 +53,10 @@ dim(mat_chr22)
 cat("extra processing...\n") 
 encode<-c("Kap1","Pol2ra","TCFL2","Control.1","Control.2","ZNF263",
           "H3K4me3.1","H3K4me3.2","Control.3","CTCF.1","ELK4","CTCF.2",
-          "Control.4","DNase")
+          "Control.4")
+#encode<-c("Kap1","Pol2ra","TCFL2","Control.1","Control.2","ZNF263",
+#          "H3K4me3.1","H3K4me3.2","Control.3","CTCF.1","ELK4","CTCF.2",
+#          "Control.4","DNase")#next tme add DNase experiment (c2b2 closed my acct before I could get this...)
 
 ####
 #changing column names, 
