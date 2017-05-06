@@ -1,3 +1,0 @@
-http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeSydhTfbs/
-
-use hek*.bam or something similar
