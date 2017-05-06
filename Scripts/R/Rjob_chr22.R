@@ -77,4 +77,5 @@ write.table(newmat_chr22,file="/ifs/scratch/c2b2/ac_lab/npg2108/HMMicro/data/fin
 
 ####
 cat("saving image...\n")
+#this image file was too big to put in github repo so kept in tmp location
 save.image("/ifs/scratch/c2b2/ac_lab/npg2108/HMMicro/data/DeepBlueR_chr22.RDa")
