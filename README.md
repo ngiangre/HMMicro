@@ -72,7 +72,7 @@ The *DeepBlueR.R* and *Rjob_chr22.R* scripts detail the procedure for downloadin
 
 **Python: 2.7+; *sklearn*, *pandas*, *numpy* and *pomegranate* packages**
 
-**HPC/Laptop requirements: system that can handle >50GB of memory and processing-for processing of epigenetic data detailed in *Rjob_chr22.R* script. Local laptop with 8GB of RAM and >20GB of memory on hard disk will suffice for submitting and downloading from DeepBlue server, though one generally can't do anything else...so run overnight with laptop never sleeping.**
+**HPC/Laptop requirements: system that can handle >80GB of memory and processing-for processing of epigenetic data detailed in *Rjob_chr22.R* script. Local laptop with 8GB of RAM and >20GB of memory on hard disk will suffice for submitting and downloading from DeepBlue server, though one generally can't do anything else...so run overnight with laptop never sleeping.**
 **************************************************
 ## References
 
