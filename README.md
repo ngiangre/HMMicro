@@ -38,7 +38,7 @@ Our evaluation set was the experimentally validated miRNA binding sites [2], whi
         *   Hafner.combined_AGO.proc.bed
         *   Hafner.combined_AGO.proc.start.end.bed
         *   Hafner.combined_AGO.proc.start.t2c_pos.bed
-4.  Liftover was performed using the UCSC Genome Browser Utilities (liftOver tool)[https://genome.ucsc.edu/cgi-bin/hgLiftOver].
+4.  Liftover was performed using the UCSC Genome Browser Utilities [liftOver tool](https://genome.ucsc.edu/cgi-bin/hgLiftOver).
     -   Outputs:
         *   Hafner.combined_AGO.proc.start.end.hg19.bed
         *   Hafner.combined_AGO.proc.start.t2c_pos.hg19.bed
