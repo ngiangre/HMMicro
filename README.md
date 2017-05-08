@@ -66,13 +66,13 @@ The *DeepBlueR.R* and *Rjob_chr22.R* scripts detail the procedure for downloadin
 
 *findingStatesDistribution.ipynb* details the procedure for finding an approximate distribution of the evaluation dataset's miRNA start sites along chromosome 22. Unfortunately, we didn't have time to strategize how to implement this knowledge. This would be a future direction. 
 
-*train_hmm.ipynb* details the procedure for developing and training an HMM using the *Pomegranate* Python package [4]. The principal components in *reduced_matrix.txt*  are used as the prior emission matrix. Uniformly disyributed random numbers populated a prior transition matrix to model probably transitions between binding and non-binding states. These prior emissions and transmissions probabilities were used for hard coding and then training the HMM. 
+*train_hmm_chr22.py* details the procedure for developing and training an HMM using the *Pomegranate* Python package [4]. The principal components in *reduced_matrix.txt*  are used as the prior emission matrix. Uniformly disyributed random numbers populated a prior transition matrix to model probably transitions between binding and non-binding states. These prior emissions and transmissions probabilities were used for hard coding and then training the HMM. 
 **************************************************
 ## System Requirements
 
 **R: version 3.3.1; *DeepBlueR* package.**
 
-**Python: 2.7+; *sklearn*, *pandas*, *numpy* and *pomegranate* packages**
+**Python: 2.7+; *sklearn*, *pandas*, *numpy*, *matplotlib* and *pomegranate* packages**
 
 **HPC/Laptop requirements: system that can handle >80GB of memory and processing-for processing of epigenetic data detailed in *Rjob_chr22.R* script. Local laptop with 8GB of RAM and >20GB of memory on hard disk will suffice for submitting and downloading from DeepBlue server, though one generally can't do anything else...so run overnight with laptop never sleeping.**
 **************************************************
